@@ -2,7 +2,6 @@ const { TwitterApi } = require("twitter-api-v2");//Se llama a la api
 const client = require("./config/client");//Se llamo al archivo client que contiene las KEYS
 const cron = require("node-cron");//Programar tareas en JavaScript (sirvio para calcular el dia de la fecha del evento y la fecha del dia en el que estamos)
 const path = require("path");//Manejo de las rutas de los archivos
-const { finished } = require("stream");
 const { exit } = require("process");
 
 const botMundial = async (test = "20") => {
