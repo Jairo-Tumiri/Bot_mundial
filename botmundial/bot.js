@@ -2,6 +2,8 @@ const { TwitterApi } = require("twitter-api-v2");//Se llama a la api
 const client = require("./config/client");//Se llamo al archivo client que contiene las KEYS
 const cron = require("node-cron");//Programar tareas en JavaScript (sirvio para calcular el dia de la fecha del evento y la fecha del dia en el que estamos)
 const path = require("path");//Manejo de las rutas de los archivos
+const { finished } = require("stream");
+const { exit } = require("process");
 
 const botMundial = async (test = "20") => {
   try {
@@ -66,25 +68,31 @@ const botMundial = async (test = "20") => {
 
     // VERIFICACION EN LA CONSOLA
     // console.log("funciona");
+
+    if(deadline == now){
+      exit.botMundial()
+    }
+
+
   } catch (error) {
     console.log(error);
   }
 };
 
-// funcion para probar y hacer un test con dias aletorios
+// test para probar con dias para no esperar 24hs
 
-const testBot = () => {
-  const tests = ["12", "5", "1"];
-  tests.forEach((test) => botMundial(test));
-};
+// const testBot = () => {
+//   const tests = ["12", "5", "1"];
+//   tests.forEach((test) => botMundial(test));
+// };
 
-testBot();
+// testBot();
 
 
-//función del Bot para cuenta regresiva cada 5 segundos.
+//El bot se ejecutara cada 1 dia.
 
-// const task = cron.schedule("*/5 * * * * *", () => {
-//   botMundial();
-// });
+const task = cron.schedule("* * */23 * * *", () => {
+  botMundial();
+});
 
-// task.start();
+task.start();
