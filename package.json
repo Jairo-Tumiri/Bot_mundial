@@ -1,0 +1,17 @@
+{
+  "name": "bot_mundial",
+  "version": "1.0.0",
+  "description": "El botMudial funciona como como un contador para calcular cuantos dias falta para el mundial.",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node botMundial/bot"
+  },
+  "keywords": [],
+  "author": "jhon tumiri, Lucas Duarte ,Christian Almendras",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "node-cron": "^3.0.2",
+    "twitter-api-v2": "^1.12.9"
+  }
+}
